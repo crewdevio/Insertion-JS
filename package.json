@@ -1,0 +1,41 @@
+{
+  "name": "create-wtl-project",
+  "version": "0.2.8",
+  "description": "create-wtl-project",
+  "main": "src/components/template.jsx",
+  "directories": {
+    "src": "src"
+  },
+  "scripts": {
+    "compiler": "babel src/ -d src/dev",
+    "start:server": "npm run compiler && npm run Development && webpack-dev-server",
+    "bundle": "webpack --mode production",
+    "Development": "webpack --mode development",
+    "production": "npm run compiler && npm run bundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buttercubz/create-wtl-project"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/buttercubz/create-wtl-project/issues"
+  },
+  "homepage": "https://github.com/buttercubz/create-wtl-project#readme",
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.5.0",
+    "html-webpack-plugin": "^4.0.4",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "wtl": "0.0.1"
+  }
+}
