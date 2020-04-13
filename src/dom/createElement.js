@@ -1,22 +1,23 @@
 import transpiler from './transpiler.js';
 
-const createElement = node => {
+function createElement(node, target = false) {
+
+    // * create div to mount the component
     const mount = document.createElement('div');
-    if (typeof node === 'string') {
+
+    if (target){
+        mount.setAttribute('src', target);
+    }
+
+    else {
         mount.setAttribute('src', 'root');
-        mount.innerHTML = node;
-        return transpiler(mount);
     }
-    const element = document.createElement(node.type);
-    if (node.props) {
-        Object.entries(node.props).forEach(prop => {
-            element.setAttribute(prop[0], prop[1]);
-        });
-    }
-    if (node.children) {
-        node.children.map(createElement).forEach(child => element.appendChild(child));
-    }
-    return element;
+
+    mount.innerHTML = node;
+
+    // * return obj like { tagName, attrs, children }
+    return transpiler(mount);
+
 };
 
 
