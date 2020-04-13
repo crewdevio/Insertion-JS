@@ -2,13 +2,13 @@
   "name": "insertion-js-project",
   "version": "0.0.1",
   "description": "build user interfaces using JSX and vDOM",
-  "main": "src/",
+  "main": "src/insertion.js",
   "directories": {
     "src": "src/",
     "vdom": "src/vdom"
   },
   "scripts": {
-    "compiler": "babel src/ -d dev"
+    "compiler": "babel dev/ -d dev/"
   },
   "repository": {
     "type": "git",
