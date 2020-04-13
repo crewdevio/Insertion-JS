@@ -1,21 +1,4 @@
-const emptyTags = [
-	'area',
-	'base',
-	'br',
-	'col',
-	'command',
-	'embed',
-	'hr',
-	'img',
-	'input',
-	'keygen',
-	'link',
-	'meta',
-	'param',
-	'source',
-	'track',
-	'wbr'
-];
+const emptyTags = ['area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr'];
 
 // escape an attribute
 let esc = str => String(str).replace(/[&<>"']/g, s => `&${map[s]};`);
@@ -34,15 +17,14 @@ let DOMAttributeNames = {
 
 let sanitized = {};
 
-function hyperJsx(tagName, attrs) {
+function insertionJsx(tagName, attrs) {
 	let stack = [];
-	let	hyper = '';
+	let hyper = '';
 	attrs = attrs || {};
 	for (let index = arguments.length; index-- > 2;) {
 		stack.push(arguments[index]);
 	}
 
-	// hyper component
 	if (typeof tagName === 'function') {
 		attrs.children = stack.reverse();
 		return tagName(attrs);
@@ -50,20 +32,18 @@ function hyperJsx(tagName, attrs) {
 
 	if (tagName) {
 		hyper += '<' + tagName;
-		if (attrs)
-			for (let key in attrs) {
-				if (attrs[key] !== false && attrs[key] != null && key !== setInnerHTMLAttr) {
-					hyper += ` ${DOMAttributeNames[key] ? DOMAttributeNames[key] : esc(key)}="${esc(attrs[key])}"`;
-				}
+		if (attrs) for (let key in attrs) {
+			if (attrs[key] !== false && attrs[key] != null && key !== setInnerHTMLAttr) {
+				hyper += ` ${DOMAttributeNames[key] ? DOMAttributeNames[key] : esc(key)}="${esc(attrs[key])}"`;
 			}
+		}
 		hyper += '>';
 	}
 
 	if (emptyTags.indexOf(tagName) === -1) {
 		if (attrs[setInnerHTMLAttr]) {
 			hyper += attrs[setInnerHTMLAttr].__html;
-		}
-		else{
+		} else {
 			while (stack.length) {
 				let child = stack.pop();
 				if (child) {
@@ -82,4 +62,4 @@ function hyperJsx(tagName, attrs) {
 	return hyper;
 };
 
-export default hyperJsx;
+export default insertionJsx;

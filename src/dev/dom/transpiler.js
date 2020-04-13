@@ -1,4 +1,4 @@
-function tr(el) {
+function transpiler(el) {
     const obj = { tagName: '', attrs: {}, children: [] };
 
     if (el.nodeName === '#text') {
@@ -14,7 +14,7 @@ function tr(el) {
         }
     }
     el.childNodes.forEach(element => {
-        obj.children.push(tr(element));
+        obj.children.push(transpiler(element));
     });
 
     const { tagName, attrs, children } = obj;
@@ -25,4 +25,4 @@ function tr(el) {
     };
 }
 
-export default tr;
+export default transpiler;

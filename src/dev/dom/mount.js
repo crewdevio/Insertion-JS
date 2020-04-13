@@ -1,4 +1,4 @@
-export default (($node, $target = false) => {
+const mount = (($node, $target = false) => {
   if ($target) {
     document.querySelector($target).replaceWith($node);
   } else {
@@ -6,3 +6,5 @@ export default (($node, $target = false) => {
   }
   return $node;
 });
+
+export default mount;
