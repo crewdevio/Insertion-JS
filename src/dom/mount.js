@@ -1,10 +1,15 @@
-const mount = (($node, $target = false) => {
+function mount($node, $target = false) {
+
   if ($target) {
     document.querySelector($target).replaceWith($node);
-  } else {
+  }
+
+  else {
     document.querySelector('#root').replaceWith($node);
   }
+
   return $node;
-});
+
+};
 
 export default mount;

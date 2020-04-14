@@ -11,7 +11,7 @@ const zip = (xs, ys) => {
 const diffAttrs = (oldAttrs, newAttrs) => {
   const patches = [];
 
-  // set new attributes
+  // * set new attributes
   for (const [k, v] of Object.entries(newAttrs)) {
     patches.push($node => {
       $node.setAttribute(k, v);
@@ -19,7 +19,7 @@ const diffAttrs = (oldAttrs, newAttrs) => {
     });
   }
 
-  // remove old attributes
+  // * remove old attributes
   for (const k in oldAttrs) {
     if (!(k in newAttrs)) {
       patches.push($node => {
