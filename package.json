@@ -1,11 +1,11 @@
 {
-  "name": "insertion-js-project",
-  "version": "0.0.1",
+  "name": "insertion",
+  "version": "0.1.0",
   "description": "build user interfaces using JSX and vDOM",
   "main": "src/insertion.js",
   "directories": {
     "src": "src/",
-    "vdom": "src/vdom"
+    "dom": "src/dom"
   },
   "scripts": {
     "compiler": "babel dev/ -d dev/"
