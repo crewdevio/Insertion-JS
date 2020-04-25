@@ -1,4 +1,4 @@
-import render from './render.js';
+import render from "./render.js";
 
 const zip = (xs, ys) => {
   const zipped = [];
@@ -13,7 +13,7 @@ const diffAttrs = (oldAttrs, newAttrs) => {
 
   // * set new attributes
   for (const [k, v] of Object.entries(newAttrs)) {
-    patches.push($node => {
+    patches.push(($node) => {
       $node.setAttribute(k, v);
       return $node;
     });
@@ -22,14 +22,14 @@ const diffAttrs = (oldAttrs, newAttrs) => {
   // * remove old attributes
   for (const k in oldAttrs) {
     if (!(k in newAttrs)) {
-      patches.push($node => {
+      patches.push(($node) => {
         $node.removeAttribute(k);
         return $node;
       });
     }
   }
 
-  return $node => {
+  return ($node) => {
     for (const patch of patches) {
       patch($node);
     }
@@ -44,13 +44,13 @@ const diffChildren = (oldVChildren, newVChildren) => {
 
   const additionalPatches = [];
   for (const additionalVChild of newVChildren.slice(oldVChildren.length)) {
-    additionalPatches.push($node => {
+    additionalPatches.push(($node) => {
       $node.appendChild(render(additionalVChild));
       return $node;
     });
   }
 
-  return $parent => {
+  return ($parent) => {
     for (const [patch, child] of zip(childPatches, $parent.childNodes)) {
       patch(child);
     }
@@ -65,26 +65,26 @@ const diffChildren = (oldVChildren, newVChildren) => {
 
 const diff = (vOldNode, vNewNode) => {
   if (vNewNode === undefined) {
-    return $node => {
+    return ($node) => {
       $node.remove();
       return undefined;
     };
   }
 
-  if (typeof vOldNode === 'string' || typeof vNewNode === 'string') {
+  if (typeof vOldNode === "string" || typeof vNewNode === "string") {
     if (vOldNode !== vNewNode) {
-      return $node => {
+      return ($node) => {
         const $newNode = render(vNewNode);
         $node.replaceWith($newNode);
         return $newNode;
       };
     } else {
-      return $node => undefined;
+      return ($node) => undefined;
     }
   }
 
   if (vOldNode.tagName !== vNewNode.tagName) {
-    return $node => {
+    return ($node) => {
       const $newNode = render(vNewNode);
       $node.replaceWith($newNode);
       return $newNode;
@@ -94,7 +94,7 @@ const diff = (vOldNode, vNewNode) => {
   const patchAttrs = diffAttrs(vOldNode.attrs, vNewNode.attrs);
   const patchChildren = diffChildren(vOldNode.children, vNewNode.children);
 
-  return $node => {
+  return ($node) => {
     patchAttrs($node);
     patchChildren($node);
     return $node;
