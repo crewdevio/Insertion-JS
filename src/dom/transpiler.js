@@ -1,6 +1,5 @@
 function transpiler(el) {
   const obj = { tagName: "", attrs: {}, children: [] };
-
   if (el.nodeName === "#text") {
     obj.children.push(el.nodeValue);
   }

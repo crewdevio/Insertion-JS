@@ -1,6 +1,14 @@
 import { assingEvent, detectListeners } from "./utils/handleEvents.js";
 
-function renderElem({ tagName, attrs, children }) {
+import HanderError from '../errors/errorHandler.js';
+
+
+function renderElem({ tagName, attrs = {}, children = [] }) {
+
+  if (tagName === 'img' && !attrs['alt']){
+      HanderError(new Error(), 'not fount alt attribute')
+  }
+
   let $el = document.createElement(tagName);
   // * set attributes
   for (const [k, v] of Object.entries(attrs)) {
@@ -20,14 +28,16 @@ function renderElem({ tagName, attrs, children }) {
   return $el;
 }
 
-function render(vNode) {
-  // * if type is string return textNode
-
-  if (vNode.tagName === "text") {
-    return document.createTextNode(vNode.children);
+const render = (vNode) => {
+  if (typeof vNode === "string") {
+    return document.createTextNode(vNode);
   }
-  // * else return element
+
+  if (vNode.tagName === 'text'){
+    return document.createTextNode(vNode.children)
+  }
+
   return renderElem(vNode);
-}
+};
 
 export default render;

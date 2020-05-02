@@ -4,53 +4,40 @@ Insertion JS is a Javascript library for build user interfaces using JSX and vDO
 
 ## Installation
 
-  working
-<!-- Use the package manager [npm](https://pip.pypa.io/en/stable/) to install Wtl js. -->
-<!--
-``` javascript
+Use the package manager [npm](https://www.npmjs.com/package/insertion) to install.
 
-npm install wtl
+```javascript
 
-``` -->
+npm i insertion
+
+```
 
 ## Hello World
 
 ⚠ It is important that all jsx components have /* @jsx insertionJsx */  at startup so that the compiler does not compile to react js ⚠
 
 ``` javascript
-
-/* @jsx insertionJsx */ // 👈 Important!!!
+/* @jsx insertionJsx */
 
 import { insertionJsx, createElement, mount, render, Fragment } from 'insertion';
 
-
-function App({ props }){
-    const metaFragment = {
-            id: 'AppComponent',
-            class:  'App',
-    }
-
+function App({ message }){
     return (
-        <Fragment {...{ metaFragment }}>
-           <h1 id={props.id} className={props.className} >
-            Hello world
+        <Fragment>
+           <h1>
+            { message }
            </h1>
         </Fragment>
       );
 };
 
-const props = {
-    id: 'app',
-    className: 'color-app'
-};
-
-const app = createElement(<App {...{ props }}></App>);
+const app = createElement(<App message={'hello world'} />);
 
 mount(render(app));
 
 ```
 
-<!-- ## Running Hello World
+## Running Hello World
 
 ``` javascript
 
@@ -58,9 +45,9 @@ npm install
 
 npm run start:server
 
-``` -->
+```
 ## Documentation
-[Documentation](#)
+[API Reference](/documentation/api.md)
 
 ## Contributing
 
