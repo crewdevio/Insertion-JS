@@ -70,7 +70,7 @@ function insertionJsx(tagName, attrs) {
     } else {
       while (stack.length) {
         let child = stack.pop();
-        if (child) {
+        if (child !== null) { // ! log erros
           if (child.pop) {
             for (let index = child.length; index--; ) stack.push(child[index]);
           } else {

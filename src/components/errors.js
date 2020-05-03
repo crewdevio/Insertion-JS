@@ -2,7 +2,7 @@
 
 import insertionJsx from "../dom/componentJsx.js";
 
-function Err({ stack, message, name }, log) {
+function Err({ stack, message }, log) {
   return insertionJsx(
     "div",
     null,

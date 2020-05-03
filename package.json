@@ -3,12 +3,13 @@
   "version": "0.1.1",
   "description": "build user interfaces using JSX and vDOM",
   "main": "src/insertion.js",
+  "typings": "index.d.ts",
   "directories": {
     "src": "src/",
     "dom": "src/dom"
   },
   "scripts": {
-    "compiler": "babel dev/ -d dev/"
+    "compiler": "babel dev/jsx -d dev/js"
   },
   "repository": {
     "type": "git",
