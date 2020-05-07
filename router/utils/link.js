@@ -1,13 +1,11 @@
-/* @jsx insertionJsx */
-
 import { insertionJsx } from '../../../index.js';
 
 function Link({ to, children }) {
 
   return insertionJsx(
-    'a',
+    "a",
     { href: `#${to}` },
-    children
+    children.join("")
   );
 }
 
