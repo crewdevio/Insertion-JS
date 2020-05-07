@@ -1,7 +1,7 @@
 /* insertion js version 0.1.0 MIT lisence Crew-Dev */
 
 import Fragment from "./src/components/fragment.js";
-import insertionJsx from "./src/dom/componentJsx.js";
+import insertionJsx from "./src/dom/ComponentCore.js";
 import createElement from "./src/dom/createElement.js";
 import diff from "./src/dom/diff.js";
 import mount from "./src/dom/mount.js";

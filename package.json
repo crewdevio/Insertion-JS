@@ -2,7 +2,7 @@
   "name": "insertion",
   "version": "0.1.1",
   "description": "build user interfaces using JSX and vDOM",
-  "main": "src/insertion.js",
+  "main": "index.js",
   "typings": "index.d.ts",
   "directories": {
     "src": "src/",
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/Crew-Dev/Insetion-JS"
   },
-  "keywords": [],
+  "keywords": ["Insertion"],
   "author": "Crew-Dev",
   "license": "MIT",
   "bugs": {
@@ -26,6 +26,7 @@
     "@babel/core": "^7.9.0",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "jest": "^26.0.1"
   }
 }
