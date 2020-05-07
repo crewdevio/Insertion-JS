@@ -1,8 +1,10 @@
 /* @jsx insertionJsx */
 
-import insertionJsx from "../dom/componentJsx.js";
+import insertionJsx from "../dom/ComponentCore.js";
 
 function Err({ stack, message }, log) {
+  document.body.style.backgroundColor = '#181b1c';
+  document.body.style.color = '#f9f7f4';
   return insertionJsx(
     "div",
     null,
@@ -19,7 +21,7 @@ function Err({ stack, message }, log) {
     insertionJsx(
       "code",
       null,
-      stack
+      stack, "&nbsp;"
     )
   );
 }

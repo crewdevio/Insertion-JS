@@ -1,12 +1,10 @@
 import { assingEvent, detectListeners } from "./utils/handleEvents.js";
 
-import HanderError from '../errors/errorHandler.js';
-
+import HanderError from "../errors/errorHandler.js";
 
 function renderElem({ tagName, attrs = {}, children = [] }) {
-
-  if (tagName === 'img' && !attrs['alt']){
-      HanderError(new Error(), 'not fount alt attribute')
+  if (tagName === "img" && !attrs["alt"]) {
+    HanderError(new Error(), "not fount alt attribute");
   }
 
   let $el = document.createElement(tagName);
@@ -33,9 +31,9 @@ const render = (vNode) => {
     return document.createTextNode(vNode);
   }
 
-  if (vNode.tagName === 'text'){
-    return document.createTextNode(vNode.children)
-  }
+  // if (vNode.tagName === 'text'){ // ! error in diff function
+  //   return document.createTextNode(vNode.children)
+  // }
 
   return renderElem(vNode);
 };
