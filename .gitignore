@@ -6,3 +6,4 @@ package-lock.json
 /.vscode
 /dev
 /insertion-routes
+core.js
