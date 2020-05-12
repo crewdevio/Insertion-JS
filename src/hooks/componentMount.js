@@ -1,7 +1,7 @@
 function DidMount(callBack = () => {}) {
   setTimeout(() => {
     callBack();
-  }, 1);
+  }, 1000);
 }
 
 export default DidMount;

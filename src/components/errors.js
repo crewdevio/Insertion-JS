@@ -1,6 +1,6 @@
 /* @jsx insertionJsx */
 
-import insertionJsx from "../dom/ComponentCore.js";
+import  insertionJsx  from "../dom/ComponentCore.js";
 
 function Err({ stack, message }, log) {
   document.body.style.backgroundColor = '#181b1c';

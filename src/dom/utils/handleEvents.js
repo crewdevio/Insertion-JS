@@ -50,7 +50,7 @@ const otherEvents = [
 
 function assingEvent(element, key, value) {
   const indexEvent = HandleEvent.indexOf(key);
-  const callback = eval(value);;
+  const callback = eval(value);
 
   if (specialEvents.includes(key)) {
     for (const event of otherEvents) {
@@ -58,10 +58,10 @@ function assingEvent(element, key, value) {
         element.addEventListener("keyup", (e) => {
           if (e.keyCode === event.code) {
             try {
-              callback(e);
+              callback.apply(window, [e]); // * add global context in callback
             } catch (error) {
               const messageError = "only use arrow function in DOM events";
-              ErrorHandler(error, messageError);
+              ErrorHandler(error, messageError, true);
             }
           }
         });
@@ -69,10 +69,8 @@ function assingEvent(element, key, value) {
     }
   }
 
-
-  if (!specialEvents.includes(key)) {
+  if (!specialEvents.includes(key))
     element.addEventListener(HandleEvent[indexEvent], callback);
-  }
 
   return element;
 }

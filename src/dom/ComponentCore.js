@@ -1,3 +1,5 @@
+import AddDebugger from './utils/debugger.js';
+
 const emptyTags = [
   "area",
   "base",
@@ -17,7 +19,7 @@ const emptyTags = [
   "wbr",
 ];
 
-// escape an attribute
+// * escape an attribute
 let esc = (str) => String(str).replace(/[&<>"']/g, (s) => `&${map[s]};`);
 let map = {
   "&": "amp",
@@ -35,6 +37,7 @@ let DOMAttributeNames = {
 let sanitized = {};
 
 function insertionJsx(tagName, attrs) {
+  AddDebugger(tagName, attrs);
   let stack = [];
   let hyper = "";
   attrs = attrs || {};
@@ -70,7 +73,8 @@ function insertionJsx(tagName, attrs) {
     } else {
       while (stack.length) {
         let child = stack.pop();
-        if (child !== null) { // ! log erros
+        if (child !== null) {
+          // ! log erros
           if (child.pop) {
             for (let index = child.length; index--; ) stack.push(child[index]);
           } else {
@@ -82,6 +86,14 @@ function insertionJsx(tagName, attrs) {
     hyper += tagName ? `</${tagName}>` : "";
   }
   sanitized[hyper] = true;
+
+  const cached_sanitized = {};
+
+  const data = [...new Set(Object.entries(sanitized))];
+
+  for (const obj of data) cached_sanitized[obj[0]] = obj[1];
+
+  sanitized = cached_sanitized; // ! prevent lost memorie cache
 
   return hyper;
 }
