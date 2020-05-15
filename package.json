@@ -9,13 +9,15 @@
     "dom": "src/dom"
   },
   "scripts": {
-    "compiler": "babel dev/jsx -d dev/js"
+    "compiler": "babel --watch dev/jsx -d dev/js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Crew-Dev/Insetion-JS"
   },
-  "keywords": ["Insertion"],
+  "keywords": [
+    "Insertion"
+  ],
   "author": "Crew-Dev",
   "license": "MIT",
   "bugs": {
@@ -25,7 +27,6 @@
   "dependencies": {
     "@babel/core": "^7.9.0",
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "jest": "^26.0.1"
   }
