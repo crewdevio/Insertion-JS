@@ -1,4 +1,4 @@
-import { render, ErrorHandler } from "../../index.js";
+import { render, ErrorHandler, mount } from "../../index.js";
 
 // * manage all routes
 function StoreRoutes(routes) {
@@ -43,7 +43,7 @@ function StoreRoutes(routes) {
 
         // * render default component
         if (route.path === "*" && hash !== "") {
-          document.querySelector("#root").replaceWith(render(route.component));
+          mount(render(route.component));
         }
         // * log message to root path
         else {
@@ -63,7 +63,7 @@ function StoreRoutes(routes) {
 
     if (component) {
       // * manager to mount elements into root endPoint
-      document.querySelector("#root").replaceWith(render(component));
+      mount(render(component));
     }
   }
   router();

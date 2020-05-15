@@ -1,9 +1,15 @@
+/*
+  * @paramns { node: string, target?: string }
+*/
+
+
 import transpiler from "./transpiler.js";
 
 function createElement(node, target = false) {
-  // * create div to mount the component  vujm,
+  // * create div to mount the component
   const mount = document.createElement("div");
 
+  // * set id to root div
   if (target) {
     mount.setAttribute("id", target);
   } else {
@@ -12,7 +18,7 @@ function createElement(node, target = false) {
 
   mount.innerHTML = node;
 
-  // * return obj like { tagName, attrs, children }
+  // * return virtualElement  { tagName, attrs, children }
   return transpiler(mount);
 }
 

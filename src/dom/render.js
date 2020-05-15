@@ -1,3 +1,9 @@
+/*
+  * paramns virtualElement : { tagName: string, attrs: object, children: array }
+  ? Return HTMLElement
+*/
+
+
 import { assingEvent, detectListeners } from "./utils/handleEvents.js";
 
 import HanderError from "../errors/errorHandler.js";
@@ -7,33 +13,31 @@ function renderElem({ tagName, attrs = {}, children = [] }) {
     HanderError(new Error(), "not fount alt attribute");
   }
 
-  let $el = document.createElement(tagName);
+  let Element = document.createElement(tagName);
+
   // * set attributes
-  for (const [k, v] of Object.entries(attrs)) {
-    if (detectListeners(k)) {
-      $el = assingEvent($el, k, v);
+  for (const [key, value] of Object.entries(attrs)) {
+    if (detectListeners(key)) {
+      Element = assingEvent(Element, key, value);
     }
-    if (!detectListeners(k)) {
-      $el.setAttribute(k, v);
+    if (!detectListeners(key)) {
+      Element.setAttribute(key, value);
     }
   }
+
   // * set children
   for (const child of children) {
     const $child = render(child);
-    $el.appendChild($child);
+    Element.appendChild($child);
   }
 
-  return $el;
+  return Element;
 }
 
 const render = (vNode) => {
   if (typeof vNode === "string") {
     return document.createTextNode(vNode);
   }
-
-  // if (vNode.tagName === 'text'){ // ! error in diff function
-  //   return document.createTextNode(vNode.children)
-  // }
 
   return renderElem(vNode);
 };
