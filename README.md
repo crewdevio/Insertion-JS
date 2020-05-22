@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/github/license/Crew-Dev/Insertion-JS)](https://github.com/Crew-Dev/Insertion-JS/blob/master/Licence.txt)
+
 # Insertion JS
 
 Insertion JS is a Javascript library for build user interfaces using JSX and vDOM
