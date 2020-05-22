@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/github/license/Crew-Dev/Insertion-JS)](https://github.com/Crew-Dev/Insertion-JS/blob/master/Licence.txt) ![npm](https://img.shields.io/npm/v/insertion) ![npm bundle size](https://img.shields.io/bundlephobia/min/insertion)
+
 # Insertion JS
 
 Insertion JS is a Javascript library for build user interfaces using JSX and vDOM
@@ -14,7 +16,7 @@ npm i insertion
 
 ## Hello World
 
-⚠ It is important that all jsx components have /* @jsx insertionJsx */  at startup so that the compiler does not compile to react js ⚠
+⚠ It is important that all jsx components have /* @jsx insertionJsx */  at startup so that the compiler does not compile to react
 
 ``` javascript
 /* @jsx insertionJsx */
@@ -42,7 +44,7 @@ mount(render(app));
 ``` javascript
 
 npm install
-
+// working on!
 npm run start:server
 
 ```
