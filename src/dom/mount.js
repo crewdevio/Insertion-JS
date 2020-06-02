@@ -5,7 +5,6 @@
 */
 
 function mount($node, $target = false) {
-
   // * default false
 
   if ($target) {

@@ -14,39 +14,44 @@ npm i insertion
 
 ## Hello World
 
-⚠ It is important that all jsx components have /* @jsx insertionJsx */  at startup so that the compiler does not compile to react js ⚠
+⚠ It is important that all jsx components have /_ @jsx insertionJsx _/ at startup so that the compiler does not compile to react js ⚠
 
-``` javascript
+```javascript
 /* @jsx insertionJsx */
 
-import { insertionJsx, createElement, mount, render, Fragment } from 'insertion';
+import {
+  insertionJsx,
+  createElement,
+  mount,
+  render,
+  Fragment,
+} from "insertion";
 
-function App({ message }){
-    return (
-        <Fragment>
-           <h1>
-            { message }
-           </h1>
-        </Fragment>
-      );
-};
+function App({ message }) {
+  return (
+    <Fragment>
+      <h1>{message}</h1>
+    </Fragment>
+  );
+}
 
-const app = createElement(<App message={'hello world'} />);
+const app = createElement(<App message={"hello world"} />);
 
 mount(render(app));
-
 ```
 
 ## Running Hello World
 
-``` javascript
+```javascript
 
 npm install
 
 npm run start:server
 
 ```
+
 ## Documentation
+
 [API Reference](/documentation/api.md)
 
 ## Contributing
@@ -54,4 +59,5 @@ npm run start:server
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
 [MIT](https://opensource.org/licenses/MIT)

@@ -1,4 +1,4 @@
-import AddDebugger from './utils/debugger.js';
+import AddDebugger from "./utils/debugger.js";
 
 const emptyTags = [
   "area",

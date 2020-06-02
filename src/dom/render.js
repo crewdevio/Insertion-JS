@@ -3,7 +3,6 @@
   ? Return HTMLElement
 */
 
-
 import { assingEvent, detectListeners } from "./utils/handleEvents.js";
 
 import HanderError from "../errors/errorHandler.js";

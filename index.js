@@ -7,8 +7,8 @@ import diff from "./src/dom/diff.js";
 import mount from "./src/dom/mount.js";
 import render from "./src/dom/render.js";
 import DidMount from "./src/hooks/componentMount.js";
-import ErrorHandler from './src/errors/errorHandler.js';
-import Store from './src/hooks/store.js';
+import ErrorHandler from "./src/errors/errorHandler.js";
+import Store from "./src/hooks/store.js";
 
 export default insertionJsx;
 
@@ -21,5 +21,5 @@ export {
   render,
   Fragment,
   Store,
-  DidMount
+  DidMount,
 };
