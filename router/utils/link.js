@@ -1,10 +1,9 @@
-import { insertionJsx } from '../../../index.js';
+import { insertionJsx } from "../../../index.js";
 
-function Link({ to, children }) {
-
+function Link({ to, className, children }) {
   return insertionJsx(
     "a",
-    { href: `#${to}` },
+    { href: `#${to}`, class: className },
     children.join("")
   );
 }
