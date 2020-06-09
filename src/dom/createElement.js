@@ -1,7 +1,6 @@
 /*
-  * @paramns { node: string, target?: string }
-*/
-
+ * @paramns { node: string, target?: string }
+ */
 
 import transpiler from "./transpiler.js";
 

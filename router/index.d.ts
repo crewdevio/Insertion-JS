@@ -20,7 +20,6 @@ export interface RouteProps {
   component?: Function | void | string | Array<InsertionElement>;
   componentsProps?: any | Object;
   children?: Array<string> | string | void;
-  redirect?: string;
 }
 
 export type LinkAttrs = {
@@ -47,8 +46,9 @@ declare function Route({
   component,
   componentsProps,
   children,
-  redirect
 }: RouteProps): InsertionRouter;
 declare function Router(): void;
 
-export { Route, Link, Switch, Router };
+declare function Redirect({ to: string }): void;
+
+export { Route, Link, Switch, Router, Redirect };

@@ -1,6 +1,6 @@
 {
   "name": "insertion",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "build user interfaces using JSX and vDOM",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -9,7 +9,9 @@
     "dom": "src/dom"
   },
   "scripts": {
-    "compiler": "babel --watch dev/jsx -d dev/js"
+    "compiler": "babel dev/jsx -d dev/js",
+    "bundler": "npx webpack",
+    "build": "npm run compiler && npm run bundler"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,8 @@
     "@babel/core": "^7.9.0",
     "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }

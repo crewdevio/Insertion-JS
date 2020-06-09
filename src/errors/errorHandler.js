@@ -8,7 +8,6 @@ function ErrorHandler(error, log, diplay = false) {
       document.querySelector("body").innerHTML = Err(error, log);
     }, 900);
   }
-
 }
 
 export default ErrorHandler;

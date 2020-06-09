@@ -5,13 +5,10 @@
 */
 
 function transpiler(el) {
-
   if (el.nodeName === "#text") {
-      // * return string value
-      return el.nodeValue;
-  }
-
-  else {
+    // * return string value
+    return el.nodeValue;
+  } else {
     const virtualElement = { tagName: "", attrs: {}, children: [] };
 
     virtualElement.tagName = el.localName;

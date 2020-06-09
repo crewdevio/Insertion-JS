@@ -7,3 +7,6 @@ package-lock.json
 /dev
 /insertion-routes
 core.js
+diac.js
+diac.js
+webpack.config.js

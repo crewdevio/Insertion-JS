@@ -1,4 +1,4 @@
-import { insertionJsx } from "../../../index.js";
+import { insertionJsx } from '../../index.js';
 
 function Link({ to, className, children }) {
   return insertionJsx(

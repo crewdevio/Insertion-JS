@@ -2,7 +2,6 @@ import { render, ErrorHandler, mount } from "../../index.js";
 
 // * manage all routes
 function StoreRoutes(routes) {
-
   // * filter all routes and store it
   const paths = routes.map((route) => {
     if (route.path !== "") {
@@ -30,7 +29,8 @@ function StoreRoutes(routes) {
       });
     }
 
-    if (!paths.includes("/")) // * throw error if root path dont exist
+    if (!paths.includes("/"))
+      // * throw error if root path dont exist
       ErrorHandler(
         new Error("Missing root route path"),
         "Add root route path",
@@ -40,7 +40,6 @@ function StoreRoutes(routes) {
     if (!paths.includes(hash)) {
       // * if not exist the path launch default component
       routes.forEach((route) => {
-
         // * render default component
         if (route.path === "*" && hash !== "") {
           mount(render(route.component));
