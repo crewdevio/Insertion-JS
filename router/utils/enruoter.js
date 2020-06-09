@@ -1,8 +1,6 @@
 import StoreRoutes from "./core.js";
 import { createElement, render, ErrorHandler } from "../../index.js";
 
-import compiler from '../../src/dom/transpiler.js';
-
 function Router({ children }) {
   children.forEach((element) => {
     if (typeof element === "string")
@@ -14,13 +12,11 @@ function Router({ children }) {
   });
   if (children[0].routes) StoreRoutes(children[0].routes);
 
-  // if (children[0].children){
-
-  //   document
-  //     .querySelector("#root") // ! fix this
-  //     .prepend(render(createElement(children[0].children.join(""))));
-  // }
-
+  if (children[0].children) {
+    createElement(children[0].children.join("")).children.forEach((el) => {
+      document.querySelector("body").prepend(render(el));
+    });
+  }
 }
 
 export default Router;

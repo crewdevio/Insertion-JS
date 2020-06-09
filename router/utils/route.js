@@ -1,16 +1,16 @@
-import { insertionJsx,  createElement, ErrorHandler } from "../../index.js";
+import { insertionJsx, createElement, ErrorHandler } from "../../index.js";
 
-function Route({ component, path, children, componentsProps, exact, redirect}) {
+function Route({ component, path, children, componentsProps, exact }) {
   const childs = children.map((child) => {
-      return child;
+    return child;
   });
 
   if (typeof component === "function")
-      component = insertionJsx(
-        component,
-        componentsProps ? componentsProps : {},
-        null
-      );
+    component = insertionJsx(
+      component,
+      componentsProps ? componentsProps : {},
+      null
+    );
 
   component = [component][0] && true ? [component] : [];
 
@@ -32,14 +32,12 @@ function Route({ component, path, children, componentsProps, exact, redirect}) {
       path,
       component: createElement(elements.join("")),
       exact: exact ? exact : false,
-      redirect: redirect ? redirect : false,
     };
   } else {
-      return {
-        path,
-        component: createElement(elements.join("")),
-        redirect: redirect ? redirect : false,
-      };
+    return {
+      path,
+      component: createElement(elements.join("")),
+    };
   }
 }
 
