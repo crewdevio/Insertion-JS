@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/github/license/Crew-Dev/Insertion-JS)](https://github.com/Crew-Dev/Insertion-JS/blob/master/Licence.txt) ![npm](https://img.shields.io/npm/v/insertion) ![npm bundle size](https://img.shields.io/bundlephobia/min/insertion)
+[![GitHub license](https://img.shields.io/github/license/Crew-Dev/Insertion-JS)](https://github.com/Crew-Dev/Insertion-JS/blob/master/Licence.txt) ![npm](https://img.shields.io/npm/v/insertion)  ![npm bundle size](https://img.shields.io/bundlephobia/min/insertion)
 
 # Insertion JS
 
