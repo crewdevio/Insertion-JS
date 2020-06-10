@@ -1,20 +1,20 @@
-export interface InsertionElement {
+interface InsertionElement {
   tagName: string;
   attrs: object | any;
   children: Array<InsertionElement> | string | InsertionElement;
 }
 
-export interface ISwitch {
+interface ISwitch {
   routes: Array<InsertionElement>;
   children: Array<string>;
 }
 
-export interface InsertionRouter {
+interface InsertionRouter {
   path: string;
   component: InsertionElement;
 }
 
-export interface RouteProps {
+interface RouteProps {
   path: string;
   exact?: boolean;
   component?: Function | void | string | Array<InsertionElement>;
@@ -22,7 +22,7 @@ export interface RouteProps {
   children?: Array<string> | string | void;
 }
 
-export type LinkAttrs = {
+type LinkAttrs = {
   hreflang?: string;
   media?: string;
   ping?: string;
@@ -33,7 +33,7 @@ export type LinkAttrs = {
   download?: string;
 };
 
-export interface LinkProps {
+interface LinkProps {
   to: string;
   attributes?: LinkAttrs;
 }
