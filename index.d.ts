@@ -2,13 +2,7 @@
   * define all types
 
 */
-
-export type IComponent =
-  | string
-  | InsertionElement
-  | Array<InsertionElement>
-  | void;
-export interface InsertionElement {
+interface InsertionElement {
   tagName: string;
   attrs: object | any;
   children: Array<InsertionElement> | string | InsertionElement;
@@ -22,5 +16,31 @@ declare function mount(node: HTMLElement, target?: string | boolean): HTMLElemen
 declare function diff(oldNode: InsertionElement, newNode: InsertionElement): Function;
 declare function DidMount(callback: Function): void | any;
 
+declare class Store {
+  public get state(): any;
 
-export { insertionJsx, createElement, render, mount, diff, DidMount, Fragment }
+  public setState(state: any): void;
+
+  public addListener(Callback: Function): void;
+
+  private notify(): void;
+
+  public initState(state): void;
+
+  private exec(callbacks): void;
+
+  public BeforeUpdate(callback: Function): void;
+
+  public removeListener(listener: Function): void;
+}
+
+export {
+  insertionJsx,
+  createElement,
+  render,
+  mount,
+  diff,
+  DidMount,
+  Fragment,
+  Store,
+};
