@@ -1,6 +1,6 @@
 {
   "name": "insertion",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "build user interfaces using JSX and vDOM",
   "main": "index.js",
   "typings": "index.d.ts",
