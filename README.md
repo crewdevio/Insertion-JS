@@ -1,8 +1,10 @@
-[![GitHub license](https://img.shields.io/github/license/Crew-Dev/Insertion-JS)](https://github.com/Crew-Dev/Insertion-JS/blob/master/Licence.txt) ![npm](https://img.shields.io/npm/v/insertion)  ![npm bundle size](https://img.shields.io/bundlephobia/min/insertion)
+[![GitHub license](https://img.shields.io/github/license/Crew-Dev/Insertion-JS)](https://github.com/Crew-Dev/Insertion-JS/blob/master/Licence.txt) ![npm](https://img.shields.io/npm/v/insertion) ![npm bundle size](https://img.shields.io/bundlephobia/min/insertion)
 
 # Insertion JS
 
 Insertion JS is a Javascript library for build user interfaces using JSX and vDOM
+
+> **node**: This project is an experiment with which I wanted to learn how React works from its most basic layer, even so, some interesting things can be done
 
 ## Installation
 
@@ -61,4 +63,5 @@ npm run start:server
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
 [MIT](https://opensource.org/licenses/MIT)
